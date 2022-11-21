@@ -1,5 +1,3 @@
-
-
 spring:
   data:
     jdbc:
@@ -14,4 +12,26 @@ spring:
     url: jdbc:mysql://localhost:3306/beeb_test?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul # ??? db connection url
     username: root # ??? db username
     password: 910314008 # ??? db password
-#    #    ALTER user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '910314008';
+    #    #    ALTER user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '910314008';
+
+    hikari:
+      maximum-pool-size=20:
+
+  jpa:
+    database: mysql
+    generate-ddl: true # DDL ??? ??? ??? ??? ??? ?? ???? ?? ??
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+    properties:
+      hibernate:
+        ddl-auto: create # // ******** ??? ??? none ******** application ??? db? ddl ?? ? ?? ??
+#        ddl-auto: update # // ******** ??? ??? none ******** application ??? db? ddl ?? ? ?? ??
+#        ddl-auto: none # // ******** ??? ??? none ******** application ??? db? ddl ?? ? ?? ??
+#        ddl-auto: create-drop # // ******** ??? ??? none ******** application ??? db? ddl ?? ? ?? ??
+        show_sql: true # jpa ? hibernate ? ?? CRUD ? ?? ?? ?? CRUD ? SQL ? ???? ?? ??.
+        use_sql_comments: true
+        format_sql: true # ??? ?? ?? SQL ? ?? ?? ???
+        default_batch_fetch_size: 1000
+
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

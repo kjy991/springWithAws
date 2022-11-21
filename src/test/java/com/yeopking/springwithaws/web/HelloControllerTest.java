@@ -10,6 +10,7 @@ import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -26,19 +27,18 @@ public class HelloControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @WithMockUser(roles="USER")
+    @WithMockUser(roles = "USER")
     @Test
-    public void hello가_리턴된다() throws Exception {
+    public void hello() throws Exception {
         String hello = "hello";
-
         mvc.perform(get("/hello"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
     }
 
-    @WithMockUser(roles="USER")
+    @WithMockUser(roles = "USER")
     @Test
-    public void helloDto가_리턴된다() throws Exception {
+    public void responseHelloDto() throws Exception {
         String name = "hello";
         int amount = 1000;
 
