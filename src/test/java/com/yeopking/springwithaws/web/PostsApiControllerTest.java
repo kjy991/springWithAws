@@ -100,8 +100,8 @@ public class PostsApiControllerTest {
         HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         // when
-        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
-//        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
+//        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
+        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
 
 
         // then
