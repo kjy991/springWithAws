@@ -27,6 +27,7 @@ out/
 out
 !**/src/main/**/out/
 !**/src/test/**/out/
+application-real-oauth.properties
 
 ### NetBeans ###
 /nbproject/private/
